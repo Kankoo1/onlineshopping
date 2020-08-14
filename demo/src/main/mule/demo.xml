@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="0c47e753-e43a-4477-8342-da4f7f0dd99d" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="demoFlow" doc:id="4c35a216-4b7c-417f-a870-59d6fbcd89f5" >
+		<http:listener doc:name="Listener" doc:id="2492c779-4945-4fd2-8ee6-70a01f31e2bb" config-ref="HTTP_Listener_config" path="/demo2"/>
+		<set-variable value="dggrrg" doc:name="Set Variable" doc:id="3d1075d7-f53a-41ce-afc1-f997a3c5063c" variableName="var5"/>
+		<set-variable value="gertt" doc:name="Set Variable" doc:id="cccd3a85-103b-4891-ae48-cfb3d3d4a0f4" variableName="var6"/>
+		<set-payload value="#[vars.var5 ++ vars.var6]" doc:name="Set Payload" doc:id="d7669a1d-0157-45ed-bc65-aaee6e816e82" />
+	</flow>
+</mule>
